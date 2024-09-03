@@ -23,7 +23,7 @@
 
     echo '<p>' .$text . '</p>';
 
-    $citation = "Il a dit : \"Le PHP est fantastique";
+    $citation = "Il a dit : \"Le PHP est fantastique\"";
 
     echo '<p>' . $citation . '</p>';
 
@@ -39,7 +39,12 @@
     $citation = "La vie est belle";
     $citation .= ", surtout quand on code en PHP!";
 
-    echo "<p>\" $citation \"</p>"
+    echo "<p>\" $citation \"</p>";
+
+    $a = 5;
+    $b = 10;
+    $c = $a + $b;
+    echo "<p> la somme de 5 et de 10 est de $c</p>"
 ?>
 <?php
     require 'partials/footer.php'
