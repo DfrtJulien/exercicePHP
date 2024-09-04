@@ -27,7 +27,14 @@
         <li class="nav-item">
           <a class="nav-link" href="/exerciceConstante.php">Exercice Constante</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/exerciceArithmetique.php">Exercice Arithmétique</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/exerciceCondition.php">Exercice Conditions</a>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
+
