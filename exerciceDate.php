@@ -1,67 +1,82 @@
 <?php
 require 'partials/head.php';
 ?>
-
+<h1>Exercice les dates en PHP</h1>
+    <h2>Exercice 1</h2>
 <?php
-// EXERCICE 1
-$date = date("d-m-Y h:i:s");
-echo "<p>$date</p>";
-
-// EXERCICE 2
-$date = strtotime('2024-08-08');
-$dateFormat = date("d-m-Y", $date);
-echo "<p>$dateFormat</p>";
-
-// EXERCICE 3
-$naissance = strtotime('15-02-1990');
-$age = 2024 - date("Y", $naissance);
-
-echo "<p>Tu as $age ans</p>";
-
-// EXERCICE 4
-
-// function validateDate($date, $format = 'd-m-Y')
-// {
-//     $d = DateTime::createFromFormat($format, $date);
-//     return $d && $d->format($format) === $date;
-// }
-
-// if (validateDate('2023-02-28', 'd-m-Y')) { 
-//     echo "Date valide"; 
-// } else { 
-//     echo "Date Invalide"; 
-// }
-
-// EXERCICE 5
-    $timestamp = time();
-    echo "<p>$timestamp</p>";
-    // Le time stamp sert a savoir combien de seconde se sont ecoulé depuis le 1er janvier 1970 minuit pour pouvoir calculer le temps
-
-// EXERCICE 6
-$tempsEcoule = time();
-$formater = date("d-m-Y", $tempsEcoule);
-echo "<p>$formater</p>";
-
-// EXERCICE 7
-
-
-$nextWeek = strtotime("+1 week");
-$dateNextWeek = date('d-m-Y', $nextWeek);
-
-echo "<p>dans une semaine nous seron le $dateNextWeek</p>";
-
-// EXERCICE 8
-
-$dateJanvier = strtotime("01-01-2024");
-$dateAujourdhui = time();
-$dateCalc = $dateAujourdhui - $dateJanvier;
-$calcul = round($dateCalc / (60 * 60 * 24));
-
-echo "<p>$calcul jours se sont écoulé depuis le 1er janvier 2024</p>";
+    $today = date('d/m/Y h-i-s');
+    echo "<p>$today</p>"
 ?>
 
+    <h2>Exercice 2</h2>
+<?php
+    $dateDonne = '2024-08-08';
+    $date = strtotime($dateDonne);
+    $dateFormat = date("d-m-Y", $date);
+    echo "<p>$dateFormat</p>";
+?>
 
+    <h2>Exercice 3</h2>
+<?php
+    $ageUser = '15-02-1990';
 
+    $naissance = strtotime($ageUser);
+
+    // On récupère le timestamp actuel : 
+    $now = time();
+
+    // On calcul la différence en années :
+    $age = date('Y', $now) - date('Y', $naissance);
+
+    echo "<p>Tu as $age ans</p>";
+?>
+
+    <h2>Exercice 4</h2>
+<?php
+    function validateDate($date)
+    {
+        $newDate = strtotime($date);
+    
+        if (!$newDate) {
+            echo '<p>Date invalide!</p>';
+        } else {
+            echo '<p>Date valide!</p>';
+        }
+    }
+
+    validateDate('22-05-1992');
+    validateDate('33-06-2024');
+?>
+
+    <h2>Exercice 5</h2>
+<?php
+    $timestamp = time();
+    echo "<p>Le timestamp actuel est : $timestamp.</p>";
+    echo "<p>Le timestamp actuel est le nombre de secondes écoulées depuis le 1er janvier 1970 à 00:00:00 UTC (système UNIX). Cette date est appelée 'Epoch'. Le timestamp est souvent utilisé en programmation pour représenter un instant précis dans le temps de manière numérique.</p>";
+?>
+
+    <h2>Exercice 6</h2>
+<?php
+     echo "<p>La date correspondant au timestamp actuel est : </p>" . date('d/m/Y', $timestamp) . "<br>";
+?>
+
+    <h2>Exercice 7</h2>
+<?php
+    $timestamp_aujourdhui = time();
+    $timestamp_semaine_apres = strtotime('+1 week', $timestamp_aujourdhui);
+    $date_semaine_apres = date('d/m/Y', $timestamp_semaine_apres);
+    echo "<p>La date dans une semaine sera : $date_semaine_apres</p>";
+?>
+
+    <h2>Exercice 8</h2>
+<?php
+    $dateJanvier = strtotime("01-01-2024");
+    $dateAujourdhui = time();
+    $dateCalc = $dateAujourdhui - $dateJanvier;
+    $calcul = round($dateCalc / (60 * 60 * 24));
+    
+    echo "<p>$calcul jours se sont écoulé depuis le 1er janvier 2024</p>";
+?>
 <?php
 require 'partials/footer.php';
 ?>
